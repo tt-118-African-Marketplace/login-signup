@@ -98,6 +98,8 @@ const expandingTransition = {
     stiffness: 30,
 }
 
+
+
 export function AccountBox(props) {
     const  [isExpanded, setExpanded ] = useState(false);
     const [active, setActive] = useState('signin');
@@ -140,7 +142,8 @@ export function AccountBox(props) {
             )}
             {active === 'signup' && (
             <HeaderContainer>
-                <HeaderText>Create Account</HeaderText>
+                <HeaderText>Create</HeaderText>
+                <HeaderText>Account</HeaderText>
                 <SmallText>Please sign up to continue!</SmallText>
             </HeaderContainer>  
             )}
@@ -149,7 +152,7 @@ export function AccountBox(props) {
             {active === 'signin' && <LoginForm />}
             {active === 'signup' && <SignupForm />}
         </InnerContainer>
-        <p onClick={playExpandingAnimation}>click here</p>
+        {/* <p onClick={playExpandingAnimation}>click here</p> */}
     </BoxContainer>
     </AccountContext.Provider>
     );

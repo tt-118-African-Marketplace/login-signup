@@ -134,7 +134,7 @@ export function AccountBox(props) {
         <TopContainer>
             <BackDrop initial={false} animate={isExpanded ? "expanded" : "collapsed"} variants={backdropVariants} transition={expandingTransition} />
             {active === 'signin' && (
-            <HeaderContainer>
+            <HeaderContainer updateToken={props.updateToken}>
                 <HeaderText>Welcome</HeaderText>
                 <HeaderText>Back</HeaderText>
                 <SmallText>Please sign in to continue!</SmallText>
@@ -148,7 +148,7 @@ export function AccountBox(props) {
             </HeaderContainer>  
             )}
         </TopContainer>
-        <InnerContainer>
+        <InnerContainer updateToken={props.updateToken}>
             {active === 'signin' && <LoginForm />}
             {active === 'signup' && <SignupForm />}
         </InnerContainer>

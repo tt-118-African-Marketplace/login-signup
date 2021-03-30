@@ -33,6 +33,7 @@ export const Label = styled.a`
     text-decoration: none;
     padding-top: .5em;
     padding-left: .5em;
+    cursor: pointer;
 `;
 
 export const BoldLink = styled.a`

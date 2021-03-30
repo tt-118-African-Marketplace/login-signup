@@ -5,8 +5,7 @@ import { AccountBox } from './components/AccountBox';
 import axios from 'axios'
 import schema from '../src/components/AccountBox/formSchema'
 import * as yup from 'yup'
-import { findRenderedComponentWithType } from "react-dom/test-utils";
-import User from './components/AccountBox/user'
+
 
 const AppStyle = styled.div`
   width: 100%;

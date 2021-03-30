@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { MutedLink, BoldLink, BoxContainer, FormContainer, Input, SubmitButton, Label } from './common'
 import { Marginer } from '../marginer'
 import { AccountContext } from './accountContext'
@@ -6,12 +6,30 @@ import { AccountContext } from './accountContext'
 export function SignupForm(props) {
 
     const { switchToSignin } = useContext(AccountContext);
+    const { username, setUsername } = useState('');
+    const { password, setPassword } = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        fetch('#', {
+            method: 'POST',
+            body: JSON.stringify({username:{username:username, password:password}}),
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                'Authorization': 'props.token'
+            })
+        }) .then((res) => res.json()
+        ).then((data) => {
+            props.updateToken(data)
+        })
+        .catch(err => console.log(err))
+    }
 
 
     return <BoxContainer>
-        <FormContainer>
-            <Input type="text" placeholder="Username" />
-            <Input type="password" placeholder="Password"/>
+        <FormContainer onSubmit={handleSubmit}>
+            <Input onChange={(e) => {setUsername(e.target.value)}} value={username} type="text" placeholder="Username" />
+            <Input onChange={(e) => { setPassword(e.target.value)}} value={password} type="password" placeholder="Password"/>
             <Label>Department: 
                
                 <select name='department'>

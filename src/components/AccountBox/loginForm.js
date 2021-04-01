@@ -14,7 +14,7 @@ export function LoginForm(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch('#', {
+        fetch('https://african-marketplace-tt118.herokuapp.com/auth/login', {
             method: 'POST',
             body: JSON.stringify({username:{username: username, password: password}}),
             headers: new Headers({

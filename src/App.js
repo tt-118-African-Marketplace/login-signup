@@ -37,7 +37,7 @@ export default function App() {
   const [disabled, setDisabled] = useState(initialDisabled);
 
 const getUsers = () => {
-  axios.get('#').then((res) => {
+  axios.get('https://african-marketplace-tt118.herokuapp.com/users/:id').then((res) => {
     setUsers(res.data);
   })
   .catch((err) => {
@@ -46,7 +46,7 @@ const getUsers = () => {
 };
 
 const postNewUser = (newUser) => {
-  axios.post('#', newUser).then((res) => {
+  axios.post('https://african-marketplace-tt118.herokuapp.com/auth/register', newUser).then((res) => {
     setUsers([res.data, ...users]);
     setFormValues(initialFormValues);
   })
